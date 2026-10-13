@@ -37,7 +37,7 @@ minimal integration
                 DiscordShell(self, owner_ids={123456789012345678})
             )
 
-    bot = Bot(command_prefix="!", intents=intents)
+    bot = Bot(command_prefix=",", intents=intents)
 
     @bot.event
     async def on_ready():
