@@ -1,0 +1,11 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+project_dir="$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)"
+
+if [[ ! -f "$project_dir/.env" ]]; then
+    printf 'Missing .env file: %s/.env\n' "$project_dir" >&2
+    exit 1
+fi
+
+exec nix develop "$project_dir" --command python "$project_dir/tests/test_bot.py"
